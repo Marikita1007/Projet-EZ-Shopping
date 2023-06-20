@@ -1,4 +1,8 @@
 import './header.scss'
+import shoppingCartImage from './logos/shopping-cart.png';
+import man from './logos/man.png';
+import light_moon from './logos/moon_light.png';
+import dark_moon from './logos/moon_dark.png';
 
 const Header = () => {
 
@@ -8,9 +12,17 @@ const Header = () => {
                 <h1>EZ Shopping</h1>
                 <nav>
                     <ul>
-                        <li><a href="">Alan Turing</a></li>
-                        <li><a href="">items</a></li>
-                        <li><a href="">Dark Mode</a></li>
+                        <li><a href="">
+                            <img className="icons" src={man} alt="Man Icon" />
+                            Alan Turing</a>
+                        </li>
+                        <li><a href="">
+                            <img className="icons" src={shoppingCartImage} alt="Shopping Cart" />
+                            items</a>
+                        </li>
+                        <li><a href="">
+                            <img className="icons" src={light_moon} alt="Light Mode" />
+                            Light Mode</a></li>
                     </ul>
                 </nav>
             </header>

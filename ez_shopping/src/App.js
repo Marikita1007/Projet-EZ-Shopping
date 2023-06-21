@@ -19,7 +19,7 @@ const App = () => {
             .then( response => response.json() )// on recupere le json de la reponse de l'API
             // .then(json => console.log(json))
             .then( data => {
-                console.log(data);
+                console.table(data);
                 // on stock les pokemons recupérés dans un variable
                 let APIProducts = data;
                 // on enregistre les pokemons de l'API dans le state

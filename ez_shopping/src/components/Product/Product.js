@@ -16,7 +16,7 @@ const Product = ({ product }) => {
                 </div>
                 <div className="product_description">{product.description}</div>
                 <div className="product_price">${product.price}</div>
-                <BtnAddToCart />
+                <BtnAddToCart id={product.id}/>
             </div>
         </div>
     )

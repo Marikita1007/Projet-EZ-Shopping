@@ -1,36 +1,32 @@
-import './App.scss';
+import "./App.scss";
 import Header from "./components/Header/Header";
-import "bootstrap/dist/css/bootstrap.min.css";// Bootstrap CSS
-import "bootstrap/dist/js/bootstrap.bundle.min";// Bootstrap Bundle JS
-import {useContext, useEffect} from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {setProducts} from "./actions/product"
+import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
 import ProductsList from "./components/ProductsList/ProductsList";
-import ProductsContext from "./data/ProductsContext";
-//test comment
+import { apiGetProducts } from "./apiFunctions/apiFunctions";
+
 const App = () => {
+	const dispatch = useDispatch();
 
-    const [state, dispatch] = useContext(ProductsContext);
+	useEffect(() => {
+		apiGetProducts().then((data) => {
+			let APIProducts = data;
+			dispatch({ type: "SET_PRODUCTS", payload: APIProducts });
+		});
+	}, []);
 
-    useEffect(() => {
-        fetch(
-            'https://fakestoreapi.com/products',
-            { method: 'GET' }
-        )
-            .then( response => response.json() )
-            .then( data => {
-                let APIProducts = data;
-                dispatch( { type: 'SET_PRODUCTS', payload: APIProducts} )
-            })
-    }, [])
+	return (
+		<BrowserRouter>
+			<Header />
+			<main id="app_ez_shopping">
+				<ProductsList />
+			</main>
+		</BrowserRouter>
+	);
+};
 
-    
-
-    return (
-        <>
-            <Header/>
-            <main id="app_ez_shopping">
-                <ProductsList />
-            </main>
-        </>
-    )
-}
 export default App;

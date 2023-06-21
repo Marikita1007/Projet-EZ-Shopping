@@ -1,19 +1,13 @@
-import { getTotalQuantity } from "./helpers";
+import { getTotalQuantity } from "../data/helpers";
+import { ADD_PRODUCT_TO_CART, UPDATE_QUANTITY } from "../constants/actions";
 
-export const initialState = {
-	products: [],
+const stateInit = {
 	myCart: {},
-	error: false,
 	quantity: 0,
 };
 
-const ProductReducer = (state, action) => {
+const cartReducer = (state, action) => {
 	switch (action.type) {
-		case "SET_PRODUCTS":
-			return {
-				...state,
-				products: action.payload,
-			};
 		case "ADD_PRODUCT_TO_CART":
 			const updatedCart = {
 				...state.myCart,
@@ -35,4 +29,6 @@ const ProductReducer = (state, action) => {
 	}
 };
 
-export default ProductReducer;
+export default cartReducer;
+
+

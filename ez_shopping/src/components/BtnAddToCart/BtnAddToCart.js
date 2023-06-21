@@ -1,15 +1,16 @@
 import "./BtnAddToCart.scss";
 import {useContext, useState} from "react";
 import ProductsContext from "../../data/ProductsContext";
+import { apiAddProductToCart } from "../../apiFunctions/apiFunctions";
 
 const BtnAddToCart = ({ id }) => {
 	const [state, dispatch] = useContext(ProductsContext);
 	const { products } = state;
-	console.log(products);
+	// const dispatch = useDispatch();
+	// console.log(products);
 
-	const addProductToCart = () => {
-		fetch(`https://fakestoreapi.com/products/${id}`)
-			.then((response) => response.json())
+	const handleAddToCart = () => {
+		apiAddProductToCart(id)
 			.then((item) => {	
 			console.log("quantity", quantity);
 			console.log("item", item);
@@ -42,7 +43,7 @@ const BtnAddToCart = ({ id }) => {
 			</div>
 			<button
 				type="button"
-				onClick={addProductToCart}
+				onClick={handleAddToCart}
 				className="btn btn-warning add_product"
 			>
 				Add to basket

@@ -1,5 +1,5 @@
 import {useReducer} from "react";
-import ProductReducer, {initialState} from "./ProductReducer";
+import productReducer, {initialState} from "./productReducer";
 import ProductsContext from "./ProductsContext";
 
 const ProductProvider = ({children}) => {

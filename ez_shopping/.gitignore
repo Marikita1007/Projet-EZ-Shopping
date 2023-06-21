@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+../React_Redux_YT/.idea/.gitignore
+../React_Redux_YT/.idea/modules.xml
+../React_Redux_YT/.idea/php.xml
+../React_Redux_YT/.idea/vcs.xml
+
+

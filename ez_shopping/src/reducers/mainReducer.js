@@ -3,6 +3,6 @@ import cartReducer from "./cartReducer";
 import productReducer from "./productReducer";
 
 export default combineReducers({
-	productReducer,
-	cartReducer
+	products: productReducer,
+	cart: cartReducer,
 });

@@ -1,13 +1,11 @@
 import "./BtnAddToCart.scss";
 import {useContext, useState} from "react";
 import ProductsContext from "../../data/ProductsContext";
+import { useSelector, useDispatch } from "react-redux";
 import { apiAddProductToCart } from "../../apiFunctions/apiFunctions";
 
 const BtnAddToCart = ({ id }) => {
-	const [state, dispatch] = useContext(ProductsContext);
-	const { products } = state;
-	// const dispatch = useDispatch();
-	// console.log(products);
+	const dispatch = useDispatch();
 
 	const handleAddToCart = () => {
 		apiAddProductToCart(id)

@@ -1,12 +1,12 @@
 import { getTotalQuantity } from "../data/helpers";
-import { ADD_PRODUCT_TO_CART, UPDATE_QUANTITY } from "../constants/actions";
+// import { ADD_PRODUCT_TO_CART, UPDATE_QUANTITY } from "../constants/actions";
 
-const stateInit = {
+export const initialState = {
 	myCart: {},
 	quantity: 0,
 };
 
-const cartReducer = (state, action) => {
+const cartReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "ADD_PRODUCT_TO_CART":
 			const updatedCart = {
@@ -14,6 +14,7 @@ const cartReducer = (state, action) => {
 				[action.payload.id]: action.payload,
 			};
 			console.log(JSON.parse(JSON.stringify(action.payload)));
+			console.log(updatedCart)
 			return {
 				...state,
 				myCart: updatedCart,

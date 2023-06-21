@@ -3,10 +3,13 @@ import {useContext} from "react";
 import ProductsContext from "../../data/ProductsContext";
 import Product from "../Product/Product";
 import './productsList.scss'
+import { useSelector } from "react-redux";
 
 const ProductsList = () => {
 
-    const[state, dispatch] = useContext(ProductsContext)
+    // const[state, dispatch] = useContext(ProductsContext)
+    const {products} = useSelector(store => store.products)
+    console.log('products:', products)
 
     return (
         <section id="products">
@@ -15,7 +18,7 @@ const ProductsList = () => {
                 {/*    <Product key={i} title={title}/>*/}
                 {/*))}*/}
 
-                {state.products.map((product, i) => (
+                {products.map((product, i) => (
                     <Product key={i} product={product} />
                 ))}
             </div>

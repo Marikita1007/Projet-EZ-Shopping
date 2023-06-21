@@ -1,14 +1,16 @@
-import {
-	 SET_PRODUCTS
-} from '../constants/actions'
+// import {
+// 	 SET_PRODUCTS
+// } from '../constants/actions'
 
-const initialState = {
+export const initialState = {
 	products: [],
 };
 
-const productReducer = (state, action) => {
+const productReducer = (state = initialState, action) => {
+	console.log("in reducer");
 	switch (action.type) {
 		case "SET_PRODUCTS":
+			console.log(state);
 			return {
 				...state,
 				products: action.payload,
@@ -19,3 +21,4 @@ const productReducer = (state, action) => {
 };
 
 export default productReducer;
+

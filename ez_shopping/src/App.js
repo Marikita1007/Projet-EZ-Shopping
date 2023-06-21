@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {setProducts} from "./actions/product"
+// import {setProducts} from "./actions/product"
 import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
 import ProductsList from "./components/ProductsList/ProductsList";
 import { apiGetProducts } from "./apiFunctions/apiFunctions";
@@ -15,7 +15,9 @@ const App = () => {
 	useEffect(() => {
 		apiGetProducts().then((data) => {
 			let APIProducts = data;
+			console.log('api prod: ',APIProducts)
 			dispatch({ type: "SET_PRODUCTS", payload: APIProducts });
+			console.log("api prod: ", APIProducts);
 		});
 	}, []);
 

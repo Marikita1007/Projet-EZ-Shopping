@@ -2,6 +2,7 @@ export const initialState = {
 	products: [],
 	myCart: [],
 	error: false,
+	quantity: 0,
 };
 
 
@@ -16,16 +17,21 @@ const ProductReducer = (state, action) => {
 					products: action.payload,
 				};
 			case "ADD_PRODUCT_TO_CART":
-				// On fait une copie de state
 				let updatedCart = [...state.myCart];
-				// On ajoute le pokemon à la liste
-				updatedCart.push(action.payload);
-				// on retourne une copie du state mise à jour
-				// En indiquant que state.myTeam prend pour valeur le tableau mis à jour
+				updatedCart.push({
+					...action.payload,
+					quantity: state.quantity, // Add quantity property to the product
+				});
 				return {
 					...state,
 					myCart: updatedCart,
+					quantity: 0, // Reset quantity to 0 after adding to cart
 				};
+			case "UPDATE_QUANTITY": // Action type to update the quantity
+				return {
+					...state,
+					quantity: action.payload,
+				}
 			default:
 				return state;
 		}

@@ -1,6 +1,6 @@
 //This is like a PokedexItem.js
 import './product.scss'
-
+import BtnAddToCart from "../BtnAddToCart/BtnAddToCart";
 
 const Product = ({ product }) => {
     return (
@@ -16,10 +16,7 @@ const Product = ({ product }) => {
                 </div>
                 <div className="product_description">{product.description}</div>
                 <div className="product_price">${product.price}</div>
-                <div className="product_quantity">
-                    Quantity: <input type='text' name='quantity' className='quantity'/>
-                </div>
-                <button type="button" className="btn btn-warning add_product">Add to basket</button>
+                <BtnAddToCart />
             </div>
         </div>
     )

@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";// Bootstrap Bundle JS
 import {useContext, useEffect} from "react";
 import ProductsList from "./components/ProductsList/ProductsList";
 import ProductsContext from "./data/ProductsContext";
-
+//test comment
 const App = () => {
 
     const [state, dispatch] = useContext(ProductsContext);

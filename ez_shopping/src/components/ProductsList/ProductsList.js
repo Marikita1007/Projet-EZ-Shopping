@@ -2,6 +2,7 @@
 import {useContext} from "react";
 import ProductsContext from "../../data/ProductsContext";
 import Product from "../Product/Product";
+import './productsList.scss'
 
 const ProductsList = () => {
 

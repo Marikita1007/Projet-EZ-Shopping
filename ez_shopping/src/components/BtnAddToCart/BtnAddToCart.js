@@ -4,6 +4,8 @@ import ProductsContext from "../../data/ProductsContext";
 
 const BtnAddToCart = ({ id }) => {
 	const [state, dispatch] = useContext(ProductsContext);
+	const { products } = state;
+	console.log(products);
 
 	const addProductToCart = () => {
 		fetch(`https://fakestoreapi.com/products/${id}`)

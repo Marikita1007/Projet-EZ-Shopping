@@ -18,10 +18,11 @@ const App = () => {
             .then( response => response.json() )
             .then( data => {
                 let APIProducts = data;
-
                 dispatch( { type: 'SET_PRODUCTS', payload: APIProducts} )
             })
     }, [])
+
+    
 
     return (
         <>

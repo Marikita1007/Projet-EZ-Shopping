@@ -3,8 +3,13 @@ import shoppingCartImage from './logos/shopping-cart.png';
 import man from './logos/man.png';
 import light_moon from './logos/moon_light.png';
 import dark_moon from './logos/moon_dark.png';
+import { useContext } from 'react';
+import ProductsContext from '../../data/ProductsContext';
 
-const Header = () => {
+const Header = ({quantity}) => {
+
+    const [state, dispatch] = useContext(ProductsContext)
+    console.log(state)
 
     return (
         <>
@@ -17,6 +22,7 @@ const Header = () => {
                             Alan Turing</a>
                         </li>
                         <li><a href="">
+                            {state.quantity}
                             <img className="icons" src={shoppingCartImage} alt="Shopping Cart" />
                             items</a>
                         </li>

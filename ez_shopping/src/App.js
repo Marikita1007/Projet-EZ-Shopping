@@ -16,9 +16,7 @@ const App = () => {
             { method: 'GET' }
         )
             .then( response => response.json() )
-            // .then(json => console.log(json))
             .then( data => {
-                // console.table(data);
                 let APIProducts = data;
 
                 dispatch( { type: 'SET_PRODUCTS', payload: APIProducts} )

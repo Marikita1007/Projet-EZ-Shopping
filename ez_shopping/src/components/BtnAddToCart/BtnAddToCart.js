@@ -8,19 +8,13 @@ const BtnAddToCart = ({ id }) => {
 	const addProductToCart = () => {
 		fetch(`https://fakestoreapi.com/products/${id}`)
 			.then((response) => response.json())
-			.then((APIProduct) => {
-				
-                 console.log("api prod", quantity);
-									const product = { ...APIProduct, quantity: quantity };
-									dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
-									setQuantity(0);
+			.then((item) => {	
+			console.log("quantity", quantity);
+			console.log("item", item);
+			const product = { ...item, quantity: quantity };
+			dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+			setQuantity(0);
 			})
-			// .then((APIProduct) => {
-            //     console.log('api prod',APIProduct);
-            //    const product = { ...APIProduct, quantity: quantity };
-			// 	dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
-			// 	setQuantity(0);
-			// });
 	};
 
 	const [quantity, setQuantity] = useState(0);

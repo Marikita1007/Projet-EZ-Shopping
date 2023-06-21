@@ -6,10 +6,10 @@ import dark_moon from './logos/moon_dark.png';
 import { useContext } from 'react';
 import ProductsContext from '../../data/ProductsContext';
 
-const Header = ({quantity}) => {
+const Header = ({}) => {
 
     const [state, dispatch] = useContext(ProductsContext)
-    console.log(state)
+    console.log("header state:",state)
 
     return (
         <>

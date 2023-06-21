@@ -8,11 +8,19 @@ const BtnAddToCart = ({ id }) => {
 	const addProductToCart = () => {
 		fetch(`https://fakestoreapi.com/products/${id}`)
 			.then((response) => response.json())
-			.then((json) => console.log(json))
-			.then((APIPokemon) => {
-				// On demande au reducers d'ajouter ce pokemon dans state.myTeam
-				dispatch({ type: "ADD_POKEMON_TO_TEAM", payload: APIPokemon });
-			});
+			.then((APIProduct) => {
+				
+                 console.log("api prod", quantity);
+									const product = { ...APIProduct, quantity: quantity };
+									dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+									setQuantity(0);
+			})
+			// .then((APIProduct) => {
+            //     console.log('api prod',APIProduct);
+            //    const product = { ...APIProduct, quantity: quantity };
+			// 	dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+			// 	setQuantity(0);
+			// });
 	};
 
 	const [quantity, setQuantity] = useState(0);
@@ -21,7 +29,7 @@ const BtnAddToCart = ({ id }) => {
 		const newQuantity = parseInt(event.target.value);
 		setQuantity(newQuantity);
 		console.log("New quantity is : " + newQuantity);
-		dispatch({ type: "UPDATE_QUANTITY", payload: newQuantity });
+		// dispatch({ type: "UPDATE_QUANTITY", payload: newQuantity });
 	};
 
 	return (

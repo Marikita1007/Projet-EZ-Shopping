@@ -11,18 +11,16 @@ const App = () => {
     const [state, dispatch] = useContext(ProductsContext);
 
     useEffect(() => {
-        // On fait un call API pour récupérer les 151 1ers pokemons
         fetch(
             'https://fakestoreapi.com/products',
             { method: 'GET' }
         )
-            .then( response => response.json() )// on recupere le json de la reponse de l'API
+            .then( response => response.json() )
             // .then(json => console.log(json))
             .then( data => {
-                console.table(data);
-                // on stock les pokemons recupérés dans un variable
+                // console.table(data);
                 let APIProducts = data;
-                // on enregistre les pokemons de l'API dans le state
+
                 dispatch( { type: 'SET_PRODUCTS', payload: APIProducts} )
             })
     }, [])

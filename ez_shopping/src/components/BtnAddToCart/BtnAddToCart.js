@@ -1,5 +1,5 @@
 import "./BtnAddToCart.scss";
-import { useContext } from "react";
+import {useContext, useState} from "react";
 import ProductsContext from "../../data/ProductsContext";
 
 const BtnAddToCart = ({ id }) => {
@@ -15,10 +15,26 @@ const BtnAddToCart = ({ id }) => {
 			});
 	};
 
+	const [quantity, setQuantity] = useState(0);
+
+	const updateQuantity = (event) => {
+		const newQuantity = parseInt(event.target.value);
+		setQuantity(newQuantity);
+		console.log("New quantity is : " + newQuantity);
+		dispatch({ type: "UPDATE_QUANTITY", payload: newQuantity });
+	};
+
 	return (
 		<>
 			<div className="product_quantity">
-				Quantity: <input type="number" name="quantity" className="quantity" />
+				Quantity:{" "}
+				<input
+					type="number"
+					name="quantity"
+					className="quantity"
+					value={quantity}
+					onChange={updateQuantity}
+				/>
 			</div>
 			<button
 				type="button"

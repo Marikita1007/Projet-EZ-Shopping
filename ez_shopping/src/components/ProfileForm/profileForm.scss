@@ -1,16 +1,6 @@
 .profile_form {
-  max-width: 1500px; /* ページ全体の最大幅を指定 */
-  margin: 0 auto; /* ページを中央に配置 */
-  padding: 0 10px; /* ページ全体の左右に余白を持たせる */
-
-  h3 {
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 20px;
-    font-weight: bold;
-  }
+  max-width: 1500px; /* Specify the maximum width of the entire page */
+  padding: 0 10px; /* Provide margins on the left and right sides of the entire page. */
 
   display: flex;
   flex-direction: column;

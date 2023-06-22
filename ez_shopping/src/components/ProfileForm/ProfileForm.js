@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import {connect, useSelector} from "react-redux";
 import {setFirstname, setLastname, setEmail} from "../../actions/actions-type";
 import {useState, useEffect} from "react";
-import "./profile.scss";
+import "./profileForm.scss";
 import {getLocalStorageData} from "../../utils/localStorage";
 
 const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
@@ -15,6 +15,13 @@ const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
     const [isValidEmail, setIsValidEmail] = useState(false);
     //Error Handler
     const [inputError, setInputError] = useState("");
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        localStorage.setItem(name, value);
+        // 他の処理を実行する
+    };
+
 
     //Moved to localStorage.js
     // useEffect(() => {
@@ -35,7 +42,7 @@ const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
     //     }
     // }, []); // Pass an empty array so that it is executed only the first time 空の配列を渡すことで、初回のみ実行するようにする
 
-    //
+
     const handleSave = () => {
 
         // Verify email

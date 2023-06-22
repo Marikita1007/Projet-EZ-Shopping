@@ -11,6 +11,7 @@ import Home from "./views/Home";
 import Profile from "./views/Profile";
 import CartPage from "./views/CartPage";
 import {useState} from "react";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const App = () => {
 			<BrowserRouter>
 				<Header toggleDarkMode={toggleDarkMode} />
 				<main id="main_content">
+					<ScrollToTop />
 					<Routes>
 						<Route path={'/'} element={<Home />}/>
 						<Route path={'profile'} element={<Profile />} />

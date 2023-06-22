@@ -5,7 +5,8 @@ import {
     RESET_QUANTITY,
     SET_FIRSTNAME,
     SET_LASTNAME,
-    SET_EMAIL
+    SET_EMAIL,
+    REMOVE_PRODUCT_FROM_CART,
 } from "../constants/actions";
 
 //PROFILE PAGE
@@ -37,4 +38,9 @@ export const updateQuantity = payload => ({
 
 export const resetQuantity = payload => ({
     type: RESET_QUANTITY, payload
+})
+
+//USER CART PAGE
+export const removeProductFromCart = payload => ({
+    type: REMOVE_PRODUCT_FROM_CART, payload
 })

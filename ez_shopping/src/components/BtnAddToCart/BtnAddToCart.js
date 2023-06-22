@@ -18,11 +18,12 @@ const BtnAddToCart = ({ id }) => {
 			})
 	};
 
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
 	const updateProductQuantity = (event) => {
 		const newQuantity = parseInt(event.target.value);
-		setQuantity(newQuantity);
+		//set the default value as 1
+		setQuantity(newQuantity >= 1 ? newQuantity : 1);
 		console.log("New quantity is : " + newQuantity);
 		// dispatch({ type: "UPDATE_QUANTITY", payload: newQuantity });
 	};
@@ -30,13 +31,14 @@ const BtnAddToCart = ({ id }) => {
 	return (
 		<>
 			<div className="product_quantity">
-				Quantity:{" "}
+				Quantity:
 				<input
 					type="number"
 					name="quantity"
 					className="quantity"
 					value={quantity}
 					onChange={updateProductQuantity}
+					min={1}
 				/>
 			</div>
 			<button

@@ -28,7 +28,7 @@ const Header = ( {firstname, lastname} ) => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/cart">
+							<NavLink to="/cartPage">
 								{totalQuantity}
 								<img className="icons" src={shoppingCartImage} alt="Shopping CartPage" />
 								items

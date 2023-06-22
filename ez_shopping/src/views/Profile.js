@@ -1,12 +1,12 @@
 // import Product from "../components/Product/Product";
 // import ProductsList from "../components/ProductsList/ProductsList";
 
+import ProfileForm from "../components/ProfileForm/ProfileForm";
+
 const Profile = () => {
     return (
         <section id="user_page">
-            <h2>Hi yousername !</h2>
-
-
+            <ProfileForm />
         </section>
     )
 }

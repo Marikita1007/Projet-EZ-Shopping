@@ -4,6 +4,7 @@ import man from "./logos/man.png";
 import light_moon from "./logos/moon_light.png";
 import dark_moon from "./logos/moon_dark.png";
 import { useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
@@ -16,27 +17,23 @@ const Header = () => {
 				<nav>
 					<ul>
 						<li>
-							<a href="">
+							<NavLink to="/profile">
 								<img className="icons" src={man} alt="Man Icon" />
 								Alan Turing
-							</a>
+							</NavLink>
 						</li>
 						<li>
-							<a href="">
+							<NavLink to="/cart">
 								{quantity}
-								<img
-									className="icons"
-									src={shoppingCartImage}
-									alt="Shopping Cart"
-								/>
+								<img className="icons" src={shoppingCartImage} alt="Shopping Cart" />
 								items
-							</a>
+							</NavLink>
 						</li>
 						<li>
-							<a href="">
-								<img className="icons" src={light_moon} alt="Light Mode" />
+							<NavLink to="/dark-mode">
+								<img className="icons" src={dark_moon} alt="Dark Mode" />
 								Light Mode
-							</a>
+							</NavLink>
 						</li>
 					</ul>
 				</nav>

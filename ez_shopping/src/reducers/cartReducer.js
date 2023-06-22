@@ -28,8 +28,10 @@ const cartReducer = (state = initialState, action) => {
 			};
 		case "RESET_QUANTITY":
 			return {
-				...state,
-				quantity: 0,
+				...initialState
+				// same as below
+				// myCart: {},
+				// quantity: 0,
 			}
 		default:
 			return state;

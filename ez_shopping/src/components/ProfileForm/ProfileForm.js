@@ -33,23 +33,23 @@ const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
     //     if (storedEmail) {
     //         setEmail(storedEmail);
     //     }
-    // }, []); // 空の配列を渡すことで、初回のみ実行するようにする
+    // }, []); // Pass an empty array so that it is executed only the first time 空の配列を渡すことで、初回のみ実行するようにする
 
     //
     const handleSave = () => {
 
-        // 入力の検証
+        // Verify email
         if (!isValidEmail) {
-            setInputError("Invalid email");
+            setInputError("Please enter valid email");
             return;
         }
 
         setFirstname(newFirstname);
         setLastname(newLastname);
         setEmail(newEmail);
-        setInputError("");// エラーメッセージをリセット
+        setInputError("");//Reset error message
 
-        // Save to localStorage データの保存 : localStorage.setItem('key', 'value');
+        // Save data to localStorage : localStorage.setItem('key', 'value');
         localStorage.setItem("firstname", newFirstname);
         localStorage.setItem("lastname", newLastname);
         localStorage.setItem("email", newEmail);
@@ -60,7 +60,7 @@ const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
         const emailValue = e.target.value;
         setNewEmail(emailValue);
 
-        // email のバリデーション
+        // Email validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const isValid = emailPattern.test(emailValue);
         setIsValidEmail(isValid);

@@ -1,4 +1,14 @@
+@import "../../App";
+
 #main_header {
+
+  //move the nav when the user scroll
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -6,14 +16,18 @@
   margin-bottom: 20px;
   background-color: #eab023;
   color: #000;
+
   .no-link-style {
     color: inherit;
     text-decoration: none;
-  }
-  h1 {
-    margin-left: 20px;
-    color: inherit;
-    text-decoration: none;
+
+    .store_logo {
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
   }
 
   nav {
@@ -39,7 +53,31 @@
           height: 24px;
           margin: 8px;
         }
+
+        button {
+          background-color: transparent;
+          border-color: transparent;
+          font-size: 20px;
+        }
       }
     }
   }
 }
+
+
+//Dark mode
+.dark-mode #main_header {
+
+  background-color: $dark-mode-black;
+  color: $dark-mode-light-grey;
+
+  .store_logo {
+    color: $dark-mode-light-grey;
+  }
+
+  button {
+    color: $dark-mode-light-grey;
+  }
+
+}
+

@@ -1,4 +1,12 @@
-import { SET_FIRSTNAME, SET_LASTNAME, SET_EMAIL } from "../constants/actions";
+import {
+    SET_PRODUCTS,
+    ADD_PRODUCT_TO_CART,
+    UPDATE_QUANTITY,
+    RESET_QUANTITY,
+    SET_FIRSTNAME,
+    SET_LASTNAME,
+    SET_EMAIL
+} from "../constants/actions";
 
 //PROFILE PAGE
 export const setFirstname = (firstname) => ({
@@ -15,3 +23,17 @@ export const setEmail = (email) => ({
     type: SET_EMAIL,
     payload: email,
 });
+
+export const setProducts = payload => ({
+    type: SET_PRODUCTS, payload
+});
+export const addProductToCart = payload => ({
+    type: ADD_PRODUCT_TO_CART, payload
+});
+export const updateQuantity = payload => ({
+    type: UPDATE_QUANTITY, payload
+})
+
+export const resetQuantity = payload => ({
+    type: RESET_QUANTITY, payload
+})

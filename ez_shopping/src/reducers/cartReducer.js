@@ -13,7 +13,8 @@ const cartReducer = (state = initialState, action) => {
 				...state.myCart,
 				[action.payload.id]: action.payload,
 			};
-			console.log(JSON.parse(JSON.stringify(action.payload)));
+			// console.log(JSON.parse(JSON.stringify(action.payload)));
+			console.log(typeof(updatedCart))
 			console.log(updatedCart)
 			return {
 				...state,
@@ -25,6 +26,11 @@ const cartReducer = (state = initialState, action) => {
 				...state,
 				quantity: action.payload,
 			};
+		case "RESET_QUANTITY":
+			return {
+				...state,
+				quantity: 0,
+			}
 		default:
 			return state;
 	}

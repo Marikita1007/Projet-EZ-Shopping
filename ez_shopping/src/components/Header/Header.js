@@ -10,13 +10,15 @@ import {connect} from "react-redux";
 import {Fragment} from "react";
 
 const Header = ( {firstname, lastname} ) => {
-	const quantity = useSelector((state) => state.cart.quantity);
-	console.log("header quantity:", quantity);
+	const totalQuantity = useSelector((state) => state.cart.quantity);
+	console.log("header quantity:", totalQuantity);
 
 	return (
 		<Fragment>
 			<header id="main_header">
-				<h1>EZ Shopping</h1>
+				<NavLink className="no-link-style" to="/">
+					<h1>EZ Shopping</h1>
+				</NavLink>
 				<nav>
 					<ul>
 						<li>
@@ -27,8 +29,8 @@ const Header = ( {firstname, lastname} ) => {
 						</li>
 						<li>
 							<NavLink to="/cart">
-								{quantity}
-								<img className="icons" src={shoppingCartImage} alt="Shopping Cart" />
+								{totalQuantity}
+								<img className="icons" src={shoppingCartImage} alt="Shopping CartPage" />
 								items
 							</NavLink>
 						</li>

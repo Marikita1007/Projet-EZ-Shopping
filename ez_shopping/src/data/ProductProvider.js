@@ -13,4 +13,4 @@ const ProductProvider = ({children}) => {
     )
 }
 
-export default ProductProvider;
+export default productprovider;

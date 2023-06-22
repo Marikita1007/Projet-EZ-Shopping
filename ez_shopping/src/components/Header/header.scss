@@ -6,9 +6,14 @@
   margin-bottom: 20px;
   background-color: #eab023;
   color: #000;
-
+  .no-link-style {
+    color: inherit;
+    text-decoration: none;
+  }
   h1 {
     margin-left: 20px;
+    color: inherit;
+    text-decoration: none;
   }
 
   nav {

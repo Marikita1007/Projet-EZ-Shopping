@@ -1,13 +1,10 @@
 //This file is like a Pokedex.js
-import {useContext} from "react";
-import ProductsContext from "../../data/ProductsContext";
 import Product from "../Product/Product";
 import './productsList.scss'
 import { useSelector } from "react-redux";
 
 const ProductsList = () => {
 
-    // const[state, dispatch] = useContext(ProductsContext)
     const {products} = useSelector(store => store.products)
     console.log('products:', products)
 

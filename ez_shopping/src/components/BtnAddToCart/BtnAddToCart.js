@@ -1,8 +1,8 @@
 import "./BtnAddToCart.scss";
-import {useContext, useState} from "react";
-import ProductsContext from "../../data/ProductsContext";
-import { useSelector, useDispatch } from "react-redux";
+import { useState} from "react";
+import { useDispatch } from "react-redux";
 import { apiAddProductToCart } from "../../apiFunctions/apiFunctions";
+import {addProductToCart} from "../../actions/actions-type";
 
 const BtnAddToCart = ({ id }) => {
 	const dispatch = useDispatch();
@@ -10,17 +10,17 @@ const BtnAddToCart = ({ id }) => {
 	const handleAddToCart = () => {
 		apiAddProductToCart(id)
 			.then((item) => {	
-			console.log("quantity", quantity);
+			console.log("product quantity:", quantity);
 			console.log("item", item);
 			const product = { ...item, quantity: quantity };
-			dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+			dispatch(addProductToCart(product));
 			setQuantity(0);
 			})
 	};
 
 	const [quantity, setQuantity] = useState(0);
 
-	const updateQuantity = (event) => {
+	const updateProductQuantity = (event) => {
 		const newQuantity = parseInt(event.target.value);
 		setQuantity(newQuantity);
 		console.log("New quantity is : " + newQuantity);
@@ -36,7 +36,7 @@ const BtnAddToCart = ({ id }) => {
 					name="quantity"
 					className="quantity"
 					value={quantity}
-					onChange={updateQuantity}
+					onChange={updateProductQuantity}
 				/>
 			</div>
 			<button

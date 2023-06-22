@@ -1,6 +1,3 @@
-// import {
-//     SET_PRODUCTS, ADD_PRODUCT_TO_CART, UPDATE_QUANTITY
-// } from '../constants/actions';
 
 // export const setProducts = payload => ({
 //     type: SET_PRODUCTS, payload

@@ -1,7 +1,7 @@
 // import {
 // 	 SET_PRODUCTS
 // } from '../constants/actions'
-
+// import "../../src/components/BtnAddToCart/BtnAddToCart.scss";
 export const initialState = {
 	products: [],
 };

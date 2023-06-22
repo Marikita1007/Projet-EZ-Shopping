@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import store from "./store";
-import ProductsContext from "./data/ProductsContext";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import mainReducer from "./reducers/mainReducer";

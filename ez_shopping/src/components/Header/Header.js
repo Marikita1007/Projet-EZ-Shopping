@@ -5,13 +5,20 @@ import light_moon from "./logos/moon_light.png";
 import dark_moon from "./logos/moon_dark.png";
 import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
-// /connect関数を使用することで、ReactコンポーネントをReduxのストアに接続し、Reduxのstateをコンポーネントのpropsとして受け取ることができる
+//connect関数を使用することで、ReactコンポーネントをReduxのストアに接続し、Reduxのstateをコンポーネントのpropsとして受け取ることができる
 import {connect} from "react-redux";
 import {Fragment} from "react";
+import {getLocalStorageData} from "../../utils/localStorage";
 
-const Header = ( {firstname, lastname} ) => {
+
+const Header = () => {
+	const { firstname, lastname } = useSelector(getLocalStorageData);
 	const totalQuantity = useSelector((state) => state.cart.quantity);
 	console.log("header quantity:", totalQuantity);
+
+	// データの取得
+	// const { firstname } = localStorage.getItem("firstname");
+	// const { lastname }  = localStorage.getItem("lastname");
 
 	return (
 		<Fragment>

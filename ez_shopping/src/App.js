@@ -9,6 +9,7 @@ import { useDispatch, Provider } from "react-redux"; // Import Provider from rea
 import ProductsList from "./components/ProductsList/ProductsList";
 import { apiGetProducts } from "./apiFunctions/apiFunctions";
 import Home from "./views/Home";
+import Profile from "./views/Profile";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const App = () => {
 			<main id="main_content">
 				<Routes>
 					<Route path={'/'} element={<Home />}/>
+					<Route path={'profile'} element={<Profile />} />
 					<Route path={"*"} element={ <p>404</p> } />
 				</Routes>
 			</main>

@@ -1,3 +1,19 @@
+$dark-mode-black: #242424;
+$dark-mode-light-grey: #acacac;
+$dark-mode-grey: #444444;
+
 * {
   box-sizing: border-box;
+}
+
+#main_content {
+  min-width: 800px;
+  min-height: 1200px;
+  margin-top: 70px;
+}
+
+
+.dark-mode {
+  background-color: $dark-mode-grey;
+  color: $dark-mode-light-grey;
 }

@@ -1,8 +1,10 @@
 import BtnAddToCart from "../BtnAddToCart/BtnAddToCart";
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector, useDispatch, connect} from "react-redux";
 import {resetQuantity} from "../../actions/actions-type";
+import {getLocalStorageData} from "../../utils/localStorage";
 
 const Cart = () => {
+    const { firstname } = useSelector(getLocalStorageData);
     const cart = useSelector((state) => state.cart.myCart);
     const quantity = useSelector((state) => state.cart.quantity);
     const dispatch = useDispatch();
@@ -18,7 +20,7 @@ const Cart = () => {
     return (
         <>
             <section id="cart_page">
-                <h2>Hi yousername !</h2>
+                <h2>Hi { firstname } !</h2>
                 <p>There are x items in your basket</p>
                 <button
                     type="button"
@@ -61,4 +63,8 @@ const Cart = () => {
     )
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+    firstname: state.profile.firstname,
+});
+
+export default connect(mapStateToProps)(Cart);

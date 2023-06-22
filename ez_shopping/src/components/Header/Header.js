@@ -6,46 +6,49 @@ import dark_moon from "./logos/moon_dark.png";
 import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 //connect関数を使用することで、ReactコンポーネントをReduxのストアに接続し、Reduxのstateをコンポーネントのpropsとして受け取ることができる
+//The connect function can be used to connect a React component to a Redux store and receive the Redux state as component props
 import {connect} from "react-redux";
 import {Fragment} from "react";
-import {getLocalStorageData} from "../../utils/localStorage";
+import {getLocalStorageData} from "../../utils/localStorage";//get default data
 
 
-const Header = () => {
+const Header = ({ toggleDarkMode }) => {
 	const { firstname, lastname } = useSelector(getLocalStorageData);
 	const totalQuantity = useSelector((state) => state.cart.quantity);
 	console.log("header quantity:", totalQuantity);
-
-	// データの取得
-	// const { firstname } = localStorage.getItem("firstname");
-	// const { lastname }  = localStorage.getItem("lastname");
 
 	return (
 		<Fragment>
 			<header id="main_header">
 				<NavLink className="no-link-style" to="/">
-					<h1>EZ Shopping</h1>
+					<div className="store_logo">EZ Shopping</div>
 				</NavLink>
 				<nav>
 					<ul>
 						<li>
 							<NavLink to="/profile">
-								<img className="icons" src={man} alt="Man Icon" />
+								<img className="icons"
+									 src={man}
+									 alt="Man Icon" />
 								{ firstname } { lastname }
 							</NavLink>
 						</li>
 						<li>
 							<NavLink to="/cartPage">
 								{totalQuantity}
-								<img className="icons" src={shoppingCartImage} alt="Shopping CartPage" />
+								<img className="icons"
+									 src={shoppingCartImage}
+									 alt="Shopping CartPage" />
 								items
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/dark-mode">
-								<img className="icons" src={dark_moon} alt="Dark Mode" />
-								Light Mode
-							</NavLink>
+							<button onClick={toggleDarkMode}>
+								<img className="icons"
+									 src={dark_moon}
+									 alt="Dark Mode"/>
+								Dark Mode
+							</button>
 						</li>
 					</ul>
 				</nav>
@@ -60,3 +63,4 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Header);
+

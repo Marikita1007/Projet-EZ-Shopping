@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
 import ProductsList from "./components/ProductsList/ProductsList";
 import { apiGetProducts } from "./apiFunctions/apiFunctions";
+import Home from "./views/Home";
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -24,8 +25,11 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<Header />
-			<main id="app_ez_shopping">
-				<ProductsList />
+			<main id="main_content">
+				<Routes>
+					<Route path={'/'} element={<Home />}/>
+					<Route path={"*"} element={ <p>404</p> } />
+				</Routes>
 			</main>
 		</BrowserRouter>
 	);

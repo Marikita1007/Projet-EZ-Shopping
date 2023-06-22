@@ -5,13 +5,16 @@ import light_moon from "./logos/moon_light.png";
 import dark_moon from "./logos/moon_dark.png";
 import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
+// /connect関数を使用することで、ReactコンポーネントをReduxのストアに接続し、Reduxのstateをコンポーネントのpropsとして受け取ることができる
+import {connect} from "react-redux";
+import {Fragment} from "react";
 
-const Header = () => {
+const Header = ( {firstname, lastname} ) => {
 	const quantity = useSelector((state) => state.cart.quantity);
 	console.log("header quantity:", quantity);
 
 	return (
-		<>
+		<Fragment>
 			<header id="main_header">
 				<h1>EZ Shopping</h1>
 				<nav>
@@ -19,7 +22,7 @@ const Header = () => {
 						<li>
 							<NavLink to="/profile">
 								<img className="icons" src={man} alt="Man Icon" />
-								Alan Turing
+								{ firstname } { lastname }
 							</NavLink>
 						</li>
 						<li>
@@ -38,8 +41,13 @@ const Header = () => {
 					</ul>
 				</nav>
 			</header>
-		</>
+		</Fragment>
 	);
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+	firstname: state.profile.firstname,
+	lastname: state.profile.lastname,
+});
+
+export default connect(mapStateToProps)(Header);

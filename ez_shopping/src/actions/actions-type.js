@@ -24,6 +24,7 @@ export const setEmail = (email) => ({
     payload: email,
 });
 
+//ALL PRODUCT HOME PAGE
 export const setProducts = payload => ({
     type: SET_PRODUCTS, payload
 });

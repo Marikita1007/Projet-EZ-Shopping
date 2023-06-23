@@ -5,8 +5,6 @@ import light_moon from "./logos/moon_light.png";
 import dark_moon from "./logos/moon_dark.png";
 import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
-//connect関数を使用することで、ReactコンポーネントをReduxのストアに接続し、Reduxのstateをコンポーネントのpropsとして受け取ることができる
-//The connect function can be used to connect a React component to a Redux store and receive the Redux state as component props
 import {connect} from "react-redux";
 import {Fragment} from "react";
 import {getLocalStorageData} from "../../utils/localStorage";//get default data

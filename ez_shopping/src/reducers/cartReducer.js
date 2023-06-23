@@ -41,7 +41,7 @@ const cartReducer = (state = initialState, action) => {
 			return {
 				...state,
 				myCart: { ...state.myCart },
-				length: Object.keys(state.myCart).length,
+				length: Object.keys(state.myCart).length === 0 ? "" : Object.keys(state.myCart).length,
 			};
 		case "UPDATE_QUANTITY":
 			return {

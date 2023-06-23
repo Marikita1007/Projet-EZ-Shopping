@@ -8,7 +8,6 @@ const Cart = () => {
 
     const {firstname} = useSelector(getLocalStorageData);
     const cart = useSelector((state) => state.cart.myCart);
-    const cartLength = useSelector((state) => state.cart.length);
     const dispatch = useDispatch();
 
     const handleClearBasket = () => {

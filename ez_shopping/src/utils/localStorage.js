@@ -1,11 +1,13 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 
+//Default user infos
 localStorage.setItem('firstname', 'Alan');
 localStorage.setItem('lastname', 'Rickman');
 localStorage.setItem('email', 'alan-fakestore@3wa');
 
 
+//Show the name to Header, cartPage and form
 export const getLocalStorageData = () => {
     const storedFirstname = localStorage.getItem('firstname');
     const storedLastname = localStorage.getItem('lastname');
@@ -32,4 +34,14 @@ export const getLocalStorageData = () => {
 //     return data ? JSON.parse(data) : null;
 // }
 
+//MARIKA TEST
+//Save the Cart Items
+export const saveCartItems = (items) => {
+    //key is 'cartItems' and make it to string
+    localStorage.setItem('cartItems', JSON.stringify(items));
+};
 
+export const getCartItems = () => {
+    const storedItems = localStorage.getItem('cartItems');
+    return storedItems ? JSON.parse(storedItems) : [];
+};

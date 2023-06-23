@@ -14,8 +14,20 @@ import {useState} from "react";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
-	const dispatch = useDispatch();
 
+	//MARIKA TEST localStorage
+	const storedItems = JSON.parse(localStorage.getItem('items'));
+	//Default value is storedItems if it doesn't exist, it's an empty array
+	const [items, setItems] = useState(storedItems || []);
+
+	useEffect(() => {
+		localStorage.setItem('items', JSON.stringify(items));
+		console.log(items);
+	}, [items]);
+	//MARIKA TEST localStorage END
+
+
+	const dispatch = useDispatch();
 	//To set dark mode
 	const [darkMode, setDarkMode] = useState(false);
 

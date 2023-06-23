@@ -1,35 +1,51 @@
-import './App.scss';
+import "./App.scss";
 import Header from "./components/Header/Header";
-import "bootstrap/dist/css/bootstrap.min.css";// Bootstrap CSS
-import "bootstrap/dist/js/bootstrap.bundle.min";// Bootstrap Bundle JS
-import {useContext, useEffect} from "react";
-import ProductsList from "./components/ProductsList/ProductsList";
-import ProductsContext from "./data/ProductsContext";
-//test comment
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {setProducts} from "./actions/actions-type";
+import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
+import { apiGetProducts } from "./apiFunctions/apiFunctions";
+import Home from "./views/Home";
+import Profile from "./views/Profile";
+import CartPage from "./views/CartPage";
+import {useState} from "react";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 const App = () => {
 
-    const [state, dispatch] = useContext(ProductsContext);
+	const dispatch = useDispatch();
+	//To set dark mode
+	const [darkMode, setDarkMode] = useState(false);
 
-    useEffect(() => {
-        fetch(
-            'https://fakestoreapi.com/products',
-            { method: 'GET' }
-        )
-            .then( response => response.json() )
-            .then( data => {
-                let APIProducts = data;
+	const toggleDarkMode = () => {
+		setDarkMode(!darkMode);
+		console.log("Dark mode is on");
+	};
 
-                dispatch( { type: 'SET_PRODUCTS', payload: APIProducts} )
-            })
-    }, [])
+	useEffect(() => {
+		apiGetProducts().then((data) => {
+			dispatch(setProducts(data));
+		});
+	}, []);
 
-    return (
-        <>
-            <Header/>
-            <main id="app_ez_shopping">
-                <ProductsList />
-            </main>
-        </>
-    )
-}
+	return (
+		<div className={darkMode ? "dark-mode" : ""}>
+			<BrowserRouter>
+				<Header toggleDarkMode={toggleDarkMode} />
+				<main id="main_content">
+					<ScrollToTop />
+					<Routes>
+						<Route path={'/'} element={<Home />}/>
+						<Route path={'profile'} element={<Profile />} />
+						<Route path={'cartPage'} element={<CartPage />} />
+						<Route path={"*"} element={ <p>404</p> } />
+					</Routes>
+				</main>
+			</BrowserRouter>
+		</div>
+	);
+};
+
 export default App;

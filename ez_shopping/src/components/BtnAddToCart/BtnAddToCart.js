@@ -1,27 +1,29 @@
 import "./BtnAddToCart.scss";
-import {useContext, useState} from "react";
-import ProductsContext from "../../data/ProductsContext";
+import { useState} from "react";
+import { useDispatch } from "react-redux";
+import { apiAddProductToCart } from "../../apiFunctions/apiFunctions";
+import {addProductToCart} from "../../actions/actions-type";
 
 const BtnAddToCart = ({ id }) => {
-	const [state, dispatch] = useContext(ProductsContext);
+	const dispatch = useDispatch();
 
-	const addProductToCart = () => {
-		fetch(`https://fakestoreapi.com/products/${id}`)
-			.then((response) => response.json())
-			.then((item) => {	
-			console.log("quantity", quantity);
-			console.log("item", item);
+	const handleAddToCart = () => {
+		apiAddProductToCart(id)
+			.then((item) => {
+			// console.log("product quantity:", quantity);
+			// console.log("item", item);
 			const product = { ...item, quantity: quantity };
-			dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
-			setQuantity(0);
+			dispatch(addProductToCart(product));
+			setQuantity(1);
 			})
 	};
 
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
-	const updateQuantity = (event) => {
+	const updateProductQuantity = (event) => {
 		const newQuantity = parseInt(event.target.value);
-		setQuantity(newQuantity);
+		//set the default value as 1
+		setQuantity(newQuantity >= 1 ? newQuantity : 1);
 		console.log("New quantity is : " + newQuantity);
 		// dispatch({ type: "UPDATE_QUANTITY", payload: newQuantity });
 	};
@@ -29,18 +31,19 @@ const BtnAddToCart = ({ id }) => {
 	return (
 		<>
 			<div className="product_quantity">
-				Quantity:{" "}
+				Quantity:
 				<input
 					type="number"
 					name="quantity"
 					className="quantity"
 					value={quantity}
-					onChange={updateQuantity}
+					onChange={updateProductQuantity}
+					min={1}
 				/>
 			</div>
 			<button
 				type="button"
-				onClick={addProductToCart}
+				onClick={handleAddToCart}
 				className="btn btn-warning add_product"
 			>
 				Add to basket

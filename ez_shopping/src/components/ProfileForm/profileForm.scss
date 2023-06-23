@@ -1,0 +1,28 @@
+.profile_form {
+
+  width: 80%;
+  margin: 0 auto;
+
+  label {
+    width: 30%;
+  }
+
+  label+input {
+    margin: 0.5% 30% 0 4%;
+  }
+
+  input+input{
+    float: right;
+  }
+
+  button {
+    max-width: 80px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .error-message {
+    max-width: fit-content;
+  }
+}
+

@@ -1,39 +1,63 @@
-import './header.scss'
-import shoppingCartImage from './logos/shopping-cart.png';
-import man from './logos/man.png';
-import light_moon from './logos/moon_light.png';
-import dark_moon from './logos/moon_dark.png';
-import { useContext } from 'react';
-import ProductsContext from '../../data/ProductsContext';
+import "./header.scss";
+import shoppingCartImage from "./logos/shopping-cart.png";
+import man from "./logos/man.png";
+import light_moon from "./logos/moon_light.png";
+import dark_moon from "./logos/moon_dark.png";
+import { useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom';
+import {connect} from "react-redux";
+import {Fragment} from "react";
+import {getLocalStorageData} from "../../utils/localStorage";//get default data
 
-const Header = ({}) => {
 
-    const [state, dispatch] = useContext(ProductsContext)
-    console.log("header state:",state)
+const Header = ({ toggleDarkMode }) => {
+	const { firstname, lastname } = useSelector(getLocalStorageData);
+	const cartLength = useSelector((state) => state.cart.length);
 
-    return (
-        <>
-            <header id="main_header">
-                <h1>EZ Shopping</h1>
-                <nav>
-                    <ul>
-                        <li><a href="">
-                            <img className="icons" src={man} alt="Man Icon" />
-                            Alan Turing</a>
-                        </li>
-                        <li><a href="">
-                            {state.quantity}
-                            <img className="icons" src={shoppingCartImage} alt="Shopping Cart" />
-                            items</a>
-                        </li>
-                        <li><a href="">
-                            <img className="icons" src={light_moon} alt="Light Mode" />
-                            Light Mode</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </>
-    )
-}
+	return (
+		<Fragment>
+			<header id="main_header">
+				<NavLink className="no-link-style" to="/">
+					<div className="store_logo">EZ Shopping</div>
+				</NavLink>
+				<nav>
+					<ul>
+						<li>
+							<NavLink to="/profile">
+								<img className="icons"
+									 src={man}
+									 alt="Man Icon" />
+								{ firstname } { lastname }
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to="/cartPage">
+								{cartLength}
+								<img className="icons"
+									 src={shoppingCartImage}
+									 alt="Shopping CartPage" />
+								items
+							</NavLink>
+						</li>
+						<li>
+							<button onClick={toggleDarkMode}>
+								<img className="icons"
+									 src={dark_moon}
+									 alt="Dark Mode"/>
+								Dark Mode
+							</button>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</Fragment>
+	);
+};
 
-export default Header;
+const mapStateToProps = (state) => ({
+	firstname: state.profile.firstname,
+	lastname: state.profile.lastname,
+});
+
+export default connect(mapStateToProps)(Header);
+

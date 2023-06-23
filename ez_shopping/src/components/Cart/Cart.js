@@ -29,7 +29,11 @@ const Cart = () => {
             <section id="cart_page">
                 <div className="cart_top">
                     <h3>Hi {firstname} !</h3>
-                    <p>There are {cartLength} items in your basket</p>
+                    {Object.values(cart).length === 0 ? (
+                        <p>Your cart is empty</p>
+                    ) : (
+                        <p>There are {Object.values(cart).length} items in your basket</p>
+                    )}
                     <button
                         type="button"
                         onClick={handleClearBasket}

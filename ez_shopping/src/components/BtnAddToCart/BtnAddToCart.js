@@ -14,7 +14,7 @@ const BtnAddToCart = ({ id }) => {
 			console.log("item", item);
 			const product = { ...item, quantity: quantity };
 			dispatch(addProductToCart(product));
-			setQuantity(0);
+			setQuantity(1);
 			})
 	};
 

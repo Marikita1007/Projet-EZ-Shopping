@@ -15,7 +15,6 @@ import {getLocalStorageData} from "../../utils/localStorage";//get default data
 const Header = ({ toggleDarkMode }) => {
 	const { firstname, lastname } = useSelector(getLocalStorageData);
 	const cartLength = useSelector((state) => state.cart.length);
-	console.log("header cartLength:", cartLength);
 
 	return (
 		<Fragment>

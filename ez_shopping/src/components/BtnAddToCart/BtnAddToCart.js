@@ -9,9 +9,9 @@ const BtnAddToCart = ({ id }) => {
 
 	const handleAddToCart = () => {
 		apiAddProductToCart(id)
-			.then((item) => {	
-			console.log("product quantity:", quantity);
-			console.log("item", item);
+			.then((item) => {
+			// console.log("product quantity:", quantity);
+			// console.log("item", item);
 			const product = { ...item, quantity: quantity };
 			dispatch(addProductToCart(product));
 			setQuantity(1);

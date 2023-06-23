@@ -1,6 +1,6 @@
 import { getTotalQuantity } from "../data/helpers";
-import product from "../components/Product/Product";
-// import { ADD_PRODUCT_TO_CART, UPDATE_QUANTITY } from "../constants/actions";
+
+import { ADD_PRODUCT_TO_CART, UPDATE_QUANTITY, REMOVE_PRODUCT_FROM_CART } from "../constants/actions";
 
 export const initialState = {
 	myCart: {},
@@ -48,10 +48,9 @@ const cartReducer = (state = initialState, action) => {
 				...state,
 				quantity: action.payload,
 			};
+			//clear the all basket
 		case "RESET_QUANTITY":
 			return {
-				// ...initialState
-				// same as below
 				myCart: {},
 				quantity: 0,
 			}

@@ -9,8 +9,9 @@ const Cart = () => {
 
     const {firstname} = useSelector(getLocalStorageData);
     const cart = useSelector((state) => state.cart.myCart);
-    const quantity = useSelector((state) => state.cart.quantity);
-    const totalQuantity = useSelector((state) => state.cart.quantity);
+    // const quantity = useSelector((state) => state.cart.quantity);
+    // const totalQuantity = useSelector((state) => state.cart.quantity);
+    const cartLength = useSelector((state) => state.cart.length);
     const dispatch = useDispatch();
 
 
@@ -28,7 +29,7 @@ const Cart = () => {
             <section id="cart_page">
                 <div className="cart_top">
                     <h3>Hi {firstname} !</h3>
-                    <p>There are {totalQuantity} items in your basket</p>
+                    <p>There are {cartLength} items in your basket</p>
                     <button
                         type="button"
                         onClick={handleClearBasket}

@@ -5,6 +5,7 @@ import product from "../components/Product/Product";
 export const initialState = {
 	myCart: {},
 	quantity: 0,
+	length : 0,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -22,14 +23,15 @@ const cartReducer = (state = initialState, action) => {
 				...state,
 				myCart: updatedCart,
 				quantity: getTotalQuantity(updatedCart),
+				length: Object.keys(updatedCart).length,
 			};
 		case "REMOVE_PRODUCT_FROM_CART":
 			console.log("REMOVE_PRODUCT_FROM_CART", action.payload);
 			console.log("cart before productId is ", state.myCart);
 			for (const productId in state.myCart) {
-				console.log("product id is "+productId);
-				console.log("action payload product to remove is ", +action.payload.productToRemove)
-				if (productId == action.payload.productToRemove) {
+				// console.log("product id is "+productId);
+				// console.log("action payload product to remove is ", +action.payload.productToRemove)
+				if (parseInt(productId) === action.payload.productToRemove) {
 					delete state.myCart[productId];
 					break;
 				}
@@ -38,7 +40,8 @@ const cartReducer = (state = initialState, action) => {
 
 			return {
 				...state,
-				myCart: { ...state.myCart }
+				myCart: { ...state.myCart },
+				length: Object.keys(state.myCart).length,
 			};
 		case "UPDATE_QUANTITY":
 			return {
@@ -47,17 +50,17 @@ const cartReducer = (state = initialState, action) => {
 			};
 		case "RESET_QUANTITY":
 			return {
-				...initialState
+				// ...initialState
 				// same as below
-				// myCart: {},
-				// quantity: 0,
+				myCart: {},
+				quantity: 0,
 			}
-		case "REMOVE_POKEMON_FROM_TEAM":
-			return {
-				...state,
-				quantity: state.quantity.filter( product => product !== action.payload.productToRemove )
-
-			}
+		// case "REMOVE_POKEMON_FROM_TEAM":
+		// 	return {
+		// 		...state,
+		// 		quantity: state.quantity.filter( product => product !== action.payload.productToRemove )
+		//
+		// 	}
 		default:
 			return state;
 	}

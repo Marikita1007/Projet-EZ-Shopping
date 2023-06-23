@@ -14,8 +14,8 @@ import {getLocalStorageData} from "../../utils/localStorage";//get default data
 
 const Header = ({ toggleDarkMode }) => {
 	const { firstname, lastname } = useSelector(getLocalStorageData);
-	const totalQuantity = useSelector((state) => state.cart.quantity);
-	// console.log("header quantity:", totalQuantity);
+	const cartLength = useSelector((state) => state.cart.length);
+	console.log("header cartLength:", cartLength);
 
 	return (
 		<Fragment>
@@ -35,7 +35,7 @@ const Header = ({ toggleDarkMode }) => {
 						</li>
 						<li>
 							<NavLink to="/cartPage">
-								{totalQuantity}
+								{cartLength}
 								<img className="icons"
 									 src={shoppingCartImage}
 									 alt="Shopping CartPage" />

@@ -7,10 +7,8 @@ export const initialState = {
 };
 
 const productReducer = (state = initialState, action) => {
-	console.log("in reducer");
 	switch (action.type) {
 		case "SET_PRODUCTS":
-			console.log(state);
 			return {
 				...state,
 				products: action.payload,

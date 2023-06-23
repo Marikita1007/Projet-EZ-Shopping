@@ -1,5 +1,4 @@
 import "./cart.scss";
-import BtnAddToCart from "../BtnAddToCart/BtnAddToCart";
 import {useSelector, useDispatch, connect} from "react-redux";
 import {resetQuantity} from "../../actions/actions-type";
 import {getLocalStorageData} from "../../utils/localStorage";
@@ -9,15 +8,9 @@ const Cart = () => {
 
     const {firstname} = useSelector(getLocalStorageData);
     const cart = useSelector((state) => state.cart.myCart);
-    // const quantity = useSelector((state) => state.cart.quantity);
-    // const totalQuantity = useSelector((state) => state.cart.quantity);
     const cartLength = useSelector((state) => state.cart.length);
     const dispatch = useDispatch();
 
-
-    // console.log("cart:", cart);
-    // console.log("quantityXart:", quantity);
-    //add logic
     const handleClearBasket = () => {
         dispatch(resetQuantity());
         console.log('in cart component')

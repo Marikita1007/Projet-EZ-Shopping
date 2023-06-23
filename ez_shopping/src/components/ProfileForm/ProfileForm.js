@@ -16,33 +16,6 @@ const ProfileForm = ({setFirstname, setLastname, setEmail}) => {
     //Error Handler
     const [inputError, setInputError] = useState("");
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        localStorage.setItem(name, value);
-        // 他の処理を実行する
-    };
-
-
-    //Moved to localStorage.js
-    // useEffect(() => {
-    //     // ページ読み込み時にローカルストレージからデフォルトの名前とメールアドレスを取得する
-    //     const storedFirstname = localStorage.getItem('firstname');
-    //     const storedLastname = localStorage.getItem('lastname');
-    //     const storedEmail = localStorage.getItem('email');
-    //
-    //     // 取得した値が存在する場合はstateにセットする
-    //     if (storedFirstname) {
-    //         setFirstname(storedFirstname);
-    //     }
-    //     if (storedLastname) {
-    //         setLastname(storedLastname);
-    //     }
-    //     if (storedEmail) {
-    //         setEmail(storedEmail);
-    //     }
-    // }, []); // Pass an empty array so that it is executed only the first time 空の配列を渡すことで、初回のみ実行するようにする
-
-
     const handleSave = () => {
 
         // Verify email

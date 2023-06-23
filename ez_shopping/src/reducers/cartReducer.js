@@ -55,12 +55,6 @@ const cartReducer = (state = initialState, action) => {
 				myCart: {},
 				quantity: 0,
 			}
-		// case "REMOVE_POKEMON_FROM_TEAM":
-		// 	return {
-		// 		...state,
-		// 		quantity: state.quantity.filter( product => product !== action.payload.productToRemove )
-		//
-		// 	}
 		default:
 			return state;
 	}

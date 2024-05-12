@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Projet-EZ-Shopping/static/css/main.836be909.css",
+    "main.js": "/Projet-EZ-Shopping/static/js/main.8911e8ac.js",
+    "static/media/man.png": "/Projet-EZ-Shopping/static/media/man.85b969d42ce4da601d75.png",
+    "static/media/shopping-cart.png": "/Projet-EZ-Shopping/static/media/shopping-cart.2476bba94f37b99e7bbe.png",
+    "static/media/moon_light.png": "/Projet-EZ-Shopping/static/media/moon_light.5f5f987d17eb8e46a786.png",
+    "static/media/moon_dark.png": "/Projet-EZ-Shopping/static/media/moon_dark.5a3a1dfc8eab1c7d5e3a.png",
+    "index.html": "/Projet-EZ-Shopping/index.html",
+    "main.836be909.css.map": "/Projet-EZ-Shopping/static/css/main.836be909.css.map",
+    "main.8911e8ac.js.map": "/Projet-EZ-Shopping/static/js/main.8911e8ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.836be909.css",
+    "static/js/main.8911e8ac.js"
+  ]
+}

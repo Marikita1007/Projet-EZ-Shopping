@@ -37,10 +37,9 @@ const App = () => {
 				<main id="main_content">
 					<ScrollToTop />
 					<Routes>
-						{/* Projet-EZ-Shopping/ is my github Pages subdirectory name*/}
-						<Route path={'/Projet-EZ-Shopping/'} element={<Home />}/>
-						<Route path={'/Projet-EZ-Shopping/profile'} element={<Profile />} />
-						<Route path={'/Projet-EZ-Shopping/cartPage'} element={<CartPage />} />
+						<Route path={'/'} element={<Home />}/>
+						<Route path={'/profile'} element={<Profile />} />
+						<Route path={'/cartPage'} element={<CartPage />} />
 						<Route path={"*"} element={ <p>404</p> } />
 					</Routes>
 				</main>

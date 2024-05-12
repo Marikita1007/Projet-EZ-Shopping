@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import {setProducts} from "./actions/actions-type";
 import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
 import { apiGetProducts } from "./apiFunctions/apiFunctions";
@@ -32,7 +32,7 @@ const App = () => {
 
 	return (
 		<div className={darkMode ? "dark-mode" : ""}>
-			<BrowserRouter>
+			<HashRouter>
 				<Header toggleDarkMode={toggleDarkMode} />
 				<main id="main_content">
 					<ScrollToTop />
@@ -43,7 +43,7 @@ const App = () => {
 						<Route path={"*"} element={ <p>404</p> } />
 					</Routes>
 				</main>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 };

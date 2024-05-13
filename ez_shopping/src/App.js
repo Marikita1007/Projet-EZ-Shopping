@@ -32,7 +32,7 @@ const App = () => {
 
 	return (
 		<div className={darkMode ? "dark-mode" : ""}>
-			<BrowserRouter basename="/Projet-EZ-Shopping">
+			<BrowserRouter>
 				<Header toggleDarkMode={toggleDarkMode} />
 				<main id="main_content">
 					<ScrollToTop />
@@ -40,7 +40,7 @@ const App = () => {
 						<Route path={'/'} element={<Home />}/>
 						<Route path={'profile'} element={<Profile />} />
 						<Route path={'cartPage'} element={<CartPage />} />
-						<Route path={"*"} element={ <p>Bob</p> } />
+						<Route path={"*"} element={ <p>404</p> } />
 					</Routes>
 				</main>
 			</BrowserRouter>

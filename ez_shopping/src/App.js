@@ -3,9 +3,9 @@ import Header from "./components/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useEffect } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom"; // Import HashRouter instead of BrowserRouter
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {setProducts} from "./actions/actions-type";
-import { useDispatch } from "react-redux"; // Remove Provider import since it's no longer needed with HashRouter
+import { useDispatch, Provider } from "react-redux"; // Import Provider from react-redux
 import { apiGetProducts } from "./apiFunctions/apiFunctions";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
@@ -32,18 +32,18 @@ const App = () => {
 
 	return (
 		<div className={darkMode ? "dark-mode" : ""}>
-			<HashRouter> {/* Use HashRouter instead of BrowserRouter for github page */}
+			<BrowserRouter>
 				<Header toggleDarkMode={toggleDarkMode} />
 				<main id="main_content">
 					<ScrollToTop />
 					<Routes>
 						<Route path={'/'} element={<Home />}/>
-						<Route path={'/profile'} element={<Profile />} />
-						<Route path={'/cartPage'} element={<CartPage />} />
+						<Route path={'profile'} element={<Profile />} />
+						<Route path={'cartPage'} element={<CartPage />} />
 						<Route path={"*"} element={ <p>404</p> } />
 					</Routes>
 				</main>
-			</HashRouter>
+			</BrowserRouter>
 		</div>
 	);
 };
